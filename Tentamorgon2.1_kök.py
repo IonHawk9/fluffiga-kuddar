@@ -9,6 +9,7 @@ vakenhet = 0
 while game:
     while loop == "intro":
         vakenhet = 0
+        ansträngning = 0
         print("--------------------------------------------------------------------------------------------------")
         print('Välkommen till Tentamorgon! Funktionerna du kan använda är "TITTA PÅ", "TITTA UNDER",')
         print('"ANVÄND" följt av ett objekt som finns i rummet. Ex: "Titta på TVn"')
@@ -19,10 +20,10 @@ while game:
     while loop == "vakna":
         sängstatus = input("Klockan ringer. Vad vill du göra? Sova, snooza eller vakna?\n")
         sängstatus = sängstatus.lower()
-        if sängstatus == "sova":
+        if "sova" in sängstatus:
             print("Du försov dig")
             loop = 10
-        if sängstatus == "snooza":
+        if "snooza" in sängstatus:
             print("Du förlorade tid")
             loop = 10
         if "vak" in sängstatus:
@@ -33,7 +34,8 @@ while game:
                 vakenhet += 1
                 print(vakenhet)
                 if vakenhet > 19:
-                    print("Du vaknar och går upp ur sängen.")
+                    print("Du kommer ihåg, shit, tentamorgon! Inte lång tid till bussen går. Iklädd bara underkläder")
+                    print("och strumpor stiger du upp ur sängen.)
                     loop = "sovrum"
 
         while loop == 10:
@@ -56,11 +58,11 @@ while game:
             loop = "badrum"
         elif "gå till hall" in handling:
             loop = "hall"
-        elif handling == "titta på byrå":
+        elif "titta på byrå" in handling:
             print("Full med damm. Du tror att den var mörblå förut men nu är den mer ljusblå. Du tänker att det är modernt och går vidare.")
-        elif handling == "titta under byrå":
+        elif "titta under byrå" in handling:
             print("En trasig strumpa. Du borde verkligen slänga den")
-        elif handling == "använd byrå":
+        elif "använd byrå" in handling:
             if "tröja" in inventory:
                 print("Den är tom")
             else:
@@ -68,6 +70,16 @@ while game:
                 inventory.append("tröja")
         elif "kläder" in handling:
             print("Dessa kläder är inte tvättade på veckor. Helt oanvändbara. Måste hitta några som inte lockar råttor.")
+        elif "använd säng"
+        elif "titta på säng" in handling:
+            print("Den är nog obäddad. Frågan är var gränsen går egentligen?")
+            print("Hur bäddad måste den vara för att den ska vara bäddad?")
+            print("Räcker det med att täcket inte ligger på golvet? Då är den bäddad.")                  
+        elif "titta under säng" in handling:
+            print("Urk! En kondom. Hur kom den dit?")
+        elif "använd säng" in handling:
+            print("You have made a terrible mistake...")
+            loop = "replay"
         else:
             print('Kommandon: "TITTA PÅ ...", "TITTA UNDER ...", "ANVÄND ...", "GÅ TILL ..."')
 
